@@ -1,39 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define the node structure
+// Define struct
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to insert at the end
-void insertAtEnd(struct Node** head_ref, int new_data) {
-    // Step 1: Allocate memory for new node
-    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
-    struct Node* last = *head_ref; // Used to traverse to the last node
+//insert function
+void insert(struct Node** head, int val) {
+    //Allocate memory
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    struct Node* last = *head; // Used to traverse to the last node
 
-    // Step 2: Assign data and set next to NULL
-    new_node->data = new_data;
-    new_node->next = NULL;
+    //Assign data
+    node->data = val;
+    node->next = NULL;
 
-    // Step 3: If the list is empty, new node becomes the head
-    if (*head_ref == NULL) {
-        *head_ref = new_node;
+    //If the list is empty
+    if (*head == NULL) {
+        *head = node;
         return;
     }
 
-    // Step 4: Traverse to the last node
+    //Traverse to the last node
     while (last->next != NULL) {
         last = last->next;
     }
 
-    // Step 5: Change the next of last node
-    last->next = new_node;
+    //Change the next of last node
+    last->next = node;
 }
 
-// Function to print the list
-void printList(struct Node* head) {
+// display function
+void display(struct Node* head) {
     struct Node* temp = head;
     while (temp != NULL) {
         printf("%d -> ", temp->data);
@@ -44,13 +44,12 @@ void printList(struct Node* head) {
 
 // Main function
 int main() {
-    struct Node* head = NULL; // Start with empty list
+    struct Node* head = NULL; 
 
-    insertAtEnd(&head, 10);
-    insertAtEnd(&head, 20);
-    insertAtEnd(&head, 30);
+    insert(&head, 10);
+    insert(&head, 20);
+    insert(&head, 30);
 
-    printList(head); // Output: 10 -> 20 -> 30 -> NULL
-
+    display(head); 
     return 0;
 }
