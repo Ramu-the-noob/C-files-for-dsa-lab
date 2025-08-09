@@ -2,15 +2,18 @@
 #include <stdlib.h>
 
 //define node
-struct Node {
+struct Node 
+{
     int data;
     struct Node* next;
 };
 
 //travese function
-void traverse(struct Node* head) {
+void traverse(struct Node* head) 
+{
     struct Node* temp = head;
-    while (temp != NULL) {
+    while (temp != NULL) 
+    {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
@@ -18,7 +21,8 @@ void traverse(struct Node* head) {
 }
 
 //data creation for traversal
-struct Node* createNode(int data) {
+struct Node* createNode(int data) 
+{
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
     new_node->data = data;
     new_node->next = NULL;
@@ -26,7 +30,8 @@ struct Node* createNode(int data) {
 }
 
 // Main function 
-int main() {
+int main() 
+{
 
     struct Node* head = createNode(10);
     head->next = createNode(20);
