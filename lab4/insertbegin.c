@@ -7,23 +7,21 @@ struct Node {
     struct Node* next;
 };
 
-// Function to insert at beginning
-void insertAtBeginning(struct Node** head_ref, int new_data) {
-    // Step 1: Allocate memory for new node
-    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+//insert function
+void insert(struct Node** head, int val) {
+    //Allocate memory de
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
 
-    // Step 2: Assign data to the new node
-    new_node->data = new_data;
+    //Assign data 
+    node->data = val;
+    node->next = *head;
 
-    // Step 3: Make next of new node as head
-    new_node->next = *head_ref;
-
-    // Step 4: Move the head to point to the new node
-    *head_ref = new_node;
+   //head = new node
+    *head = node;
 }
 
-// Function to print the list
-void printList(struct Node* head) {
+// display Function
+void display(struct Node* head) {
     struct Node* temp = head;
     while (temp != NULL) {
         printf("%d -> ", temp->data);
@@ -32,15 +30,15 @@ void printList(struct Node* head) {
     printf("NULL\n");
 }
 
-// Main function
+// Main 
 int main() {
-    struct Node* head = NULL; // Start with empty list
+    struct Node* head = NULL; 
 
-    insertAtBeginning(&head, 30);
-    insertAtBeginning(&head, 20);
-    insertAtBeginning(&head, 10);
+    insert(&head, 10);
+    insert(&head, 20);
+    insert(&head, 30);
 
-    printList(head); // Output: 10 -> 20 -> 30 -> NULL
+    display(head); 
 
     return 0;
 }
