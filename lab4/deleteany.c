@@ -2,20 +2,24 @@
 #include <stdlib.h>
 
 // Define node 
-struct Node {
+struct Node 
+{
     int data;
     struct Node* next;
 };
 
 // delete function
-void delany(struct Node** head, int pos) {
-    if (*head == NULL) {
+void delany(struct Node** head, int pos) 
+{
+    if (*head == NULL) 
+    {
         printf("List is empty.\n");
         return;
     }
 
     // if first node
-    if (pos == 1) {
+    if (pos == 1) 
+    {
         struct Node* temp = *head;
         *head = temp->next;
         free(temp);
@@ -25,12 +29,14 @@ void delany(struct Node** head, int pos) {
     struct Node* temp = *head;
 
     // set node to pos - 1
-    for (int i = 1; i < pos - 1 && temp != NULL; i++) {
+    for (int i = 1; i < pos - 1 && temp != NULL; i++)
+    {
         temp = temp->next;
     }
 
     // If position is out of bounds
-    if (temp == NULL || temp->next == NULL) {
+    if (temp == NULL || temp->next == NULL) 
+    {
         printf("Error: Position %d is out of bounds.\n", pos);
         return;
     }
@@ -42,9 +48,11 @@ void delany(struct Node** head, int pos) {
 }
 
 // display function
-void display(struct Node* head) {
+void display(struct Node* head) 
+{
     struct Node* temp = head;
-    while (temp != NULL) {
+    while (temp != NULL) 
+    {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
@@ -52,7 +60,8 @@ void display(struct Node* head) {
 }
 
 // insert some val function
-void insert(struct Node** head, int val) {
+void insert(struct Node** head, int val) 
+{
     
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
     node->data = val;
@@ -62,7 +71,8 @@ void insert(struct Node** head, int val) {
 }
 
 // Main function
-int main() {
+int main() 
+{
     struct Node* head = NULL;
 
     insert(&head, 10);
