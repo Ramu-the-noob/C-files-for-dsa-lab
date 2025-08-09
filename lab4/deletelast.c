@@ -2,20 +2,23 @@
 #include <stdlib.h>
 
 // Define node
-struct Node {
+struct Node 
+{
     int data;
     struct Node* next;
 };
 
 //delete function
-void delLast(struct Node** head) {
+void delLast(struct Node** head) 
+{
     if (*head == NULL) {
         printf("List is empty.\n");
         return;
     }
 
     // If there's only one node
-    if ((*head)->next == NULL) {
+    if ((*head)->next == NULL) 
+    {
         free(*head);
         *head = NULL;
         return;
@@ -23,7 +26,8 @@ void delLast(struct Node** head) {
 
     // if there are two or more nodes
     struct Node* temp = *head;
-    while (temp->next->next != NULL) {
+    while (temp->next->next != NULL) 
+    {
         temp = temp->next;
     }
 
@@ -33,7 +37,8 @@ void delLast(struct Node** head) {
 }
 
 // display function
-void display(struct Node* head) {
+void display(struct Node* head) 
+{
     struct Node* temp = head;
     while (temp != NULL) {
         printf("%d -> ", temp->data);
@@ -43,7 +48,8 @@ void display(struct Node* head) {
 }
 
 // inserting value function
-void insert(struct Node** head, int val) {
+void insert(struct Node** head, int val) 
+{
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
     node->data = val;
     node->next = *head;
@@ -52,7 +58,8 @@ void insert(struct Node** head, int val) {
 }
 
 // Main function 
-int main() {
+int main() 
+{
     struct Node* head = NULL;
 
     insert(&head, 10);
