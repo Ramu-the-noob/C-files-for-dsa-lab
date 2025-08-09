@@ -2,13 +2,15 @@
 #include <stdlib.h>
 
 // Define struct
-struct Node {
+struct Node 
+{
     int data;
     struct Node* next;
 };
 
 //insert function
-void insert(struct Node** head, int val) {
+void insert(struct Node** head, int val) 
+{
     //Allocate memory
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
     struct Node* last = *head; // Used to traverse to the last node
@@ -18,13 +20,15 @@ void insert(struct Node** head, int val) {
     node->next = NULL;
 
     //If the list is empty
-    if (*head == NULL) {
+    if (*head == NULL) 
+    {
         *head = node;
         return;
     }
 
     //Traverse to the last node
-    while (last->next != NULL) {
+    while (last->next != NULL) 
+    {
         last = last->next;
     }
 
@@ -33,9 +37,11 @@ void insert(struct Node** head, int val) {
 }
 
 // display function
-void display(struct Node* head) {
+void display(struct Node* head) 
+{
     struct Node* temp = head;
-    while (temp != NULL) {
+    while (temp != NULL) 
+    {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
@@ -43,7 +49,8 @@ void display(struct Node* head) {
 }
 
 // Main function
-int main() {
+int main() 
+{
     struct Node* head = NULL; 
 
     insert(&head, 10);
