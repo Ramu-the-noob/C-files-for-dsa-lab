@@ -2,14 +2,17 @@
 #include <stdlib.h>
 
 // Define node
-struct Node {
+struct Node 
+{
     int data;
     struct Node* next;
 };
 
 // delete function
-void del(struct Node** head) {
-    if (*head == NULL) {
+void del(struct Node** head) 
+{
+    if (*head == NULL) 
+    {
         printf("List is empty.\n");
         return;
     }
@@ -20,9 +23,11 @@ void del(struct Node** head) {
 }
 
 // display
-void display(struct Node* head) {
+void display(struct Node* head) 
+{
     struct Node* temp = head;
-    while (temp != NULL) {
+    while (temp != NULL) 
+    {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
@@ -30,7 +35,8 @@ void display(struct Node* head) {
 }
 
 // adding data 
-void insert(struct Node** head, int val) {
+void insert(struct Node** head, int val) 
+{
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
     node->data = val;
     node->next = *head;
@@ -38,7 +44,8 @@ void insert(struct Node** head, int val) {
 }
 
 // Main function 
-int main() {
+int main() 
+{
     struct Node* head = NULL;
 
     // Insert some test data
