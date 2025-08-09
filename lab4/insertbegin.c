@@ -2,13 +2,15 @@
 #include <stdlib.h>
 
 // Define the node structure
-struct Node {
+struct Node 
+{
     int data;
     struct Node* next;
 };
 
 //insert function
-void insert(struct Node** head, int val) {
+void insert(struct Node** head, int val) 
+{
     //Allocate memory de
     struct Node* node = (struct Node*)malloc(sizeof(struct Node));
 
@@ -21,9 +23,11 @@ void insert(struct Node** head, int val) {
 }
 
 // display Function
-void display(struct Node* head) {
+void display(struct Node* head) 
+{
     struct Node* temp = head;
-    while (temp != NULL) {
+    while (temp != NULL) 
+    {
         printf("%d -> ", temp->data);
         temp = temp->next;
     }
@@ -31,7 +35,8 @@ void display(struct Node* head) {
 }
 
 // Main 
-int main() {
+int main() 
+{
     struct Node* head = NULL; 
 
     insert(&head, 10);
