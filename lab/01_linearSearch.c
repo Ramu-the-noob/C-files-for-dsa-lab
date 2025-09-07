@@ -1,26 +1,20 @@
 #include <stdio.h>
-int linearsearch(int a[], int n, int sk)
-{
-  for(int i=0; i<n; i++)
-  {
-    if(a[i]==sk)
-    {
+int linearsearch(int a[], int n, int sk){
+  for(int i=0; i<n; i++){
+    if(a[i]==sk){
       return i;
       break;
     }
   }
   return -1;
 }
-
-void main()
-{
+void main(){
   int n, sk;
   printf("Enter n: ");
   scanf("%d",&n);
   int a[n];
   printf("Enter elements:\n");
-  for(int i=0; i<n; i++)
-  {
+  for(int i=0; i<n; i++){
     scanf("%d",&a[i]);
   }
   printf("Enter search key: ");
