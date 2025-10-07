@@ -13,7 +13,7 @@ struct Node* current = NULL;
 // Create new webpage node
 struct Node* createNode(const char* url) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    strcpy_s(newNode->url, sizeof(newNode->url), url);  // fix
+    strcpy(newNode->url, url);  // fix
     newNode->prev = newNode->next = NULL;
     return newNode;
 }
@@ -72,12 +72,12 @@ int main() {
     while (1) {
         printf("\n1. Visit new page\n2. Back\n3. Forward\n4. Show current page\n5. Exit\n");
         printf("Enter choice: ");
-        scanf_s("%d", &choice);
+        scanf("%d", &choice);
 
         switch (choice) {
         case 1:
             printf("Enter URL: ");
-            scanf_s("%s", url, (unsigned)_countof(url));  // fix
+            scanf("%s", url);  // fix
             visitPage(url);
             break;
         case 2:
@@ -97,5 +97,4 @@ int main() {
     }
     return 0;
 }
-
 
